@@ -36,7 +36,9 @@ export default async function handler(req, res) {
         mp.created_at
       FROM mess_payments mp
       JOIN messes m ON m.id = mp.mess_id
-      WHERE mp.status = 'paid'
+      ${messId ? "WHERE mp.mess_id = $1" : ""}
+      WHERE mp.status = 'pending'
+
       ORDER BY mp.created_at DESC
       `,
       messId ? [messId] : []
