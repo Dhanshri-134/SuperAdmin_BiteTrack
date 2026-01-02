@@ -100,9 +100,9 @@ export default function Sidebar({ collapsed, setCollapsed }) {
           <CreditCard size={20} /> <span>Register Mess</span>
         </a>
 
-        <a href="/cash-payments">
+        {/* <a href="/cash-payments">
           <Wallet size={20} /> <span>Cash Payments</span>
-        </a>
+        </a> */}
 
         {/* <a href="/notifications">
           <Bell size={20} /> <span>Notifications</span>
