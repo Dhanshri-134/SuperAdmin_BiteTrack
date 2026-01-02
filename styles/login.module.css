@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-.logo {
+.Header {
   font-size: 1.8rem;
   font-weight: 700;
   color: #16a34a;
@@ -54,17 +54,12 @@
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 1rem;
-  background-color: #d1d5db;
 }
 
 .formGroup input:focus {
   outline: none;
-  padding: 0.6rem 0.8rem;
   border-color: #16a34a;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: #d1d5db;
-  box-shadow: 0 0 0 2px rgba(202, 228, 211, 0.2);
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
 }
 
 .loginBtn {
@@ -88,4 +83,47 @@
   .card {
     padding: 2rem 1.5rem;
   }
+}
+
+.logo {
+  width: 90px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.forgot {
+  text-align: right;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: #2563eb;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+}
+.passwordWrapper {
+  position: relative;
+}
+
+.passwordWrapper input {
+  padding-right: 2.5rem;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.eyeIcon:hover {
+  color: #111827;
 }
