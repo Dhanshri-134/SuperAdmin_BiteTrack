@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../components/Layout";
-import styles from "../styles/table.module.css"; // create separate CSS if needed
+import styles from "../styles/table.module.css";
 import useAuth from "../hooks/useAuth";
 
 export default function MessPage() {
-  useAuth(); // ensure user is logged in
+  useAuth();
 
   const [messes, setMesses] = useState([]);
+  const [activeTab, setActiveTab] = useState("requests"); // requests | approved
   const [error, setError] = useState("");
   const router = useRouter();
 
@@ -31,7 +32,7 @@ export default function MessPage() {
 
       setMesses(data.messes || []);
     } catch (err) {
-      console.error("Error fetching messes:", err);
+      console.error(err);
       setError(err.message || "Failed to fetch messes");
     }
   };
@@ -40,14 +41,74 @@ export default function MessPage() {
     fetchMesses();
   }, []);
 
+  const pendingMesses = messes.filter(
+    (m) => m.subscription_status === "pending_approval"
+  );
+
+  const approvedMesses = messes.filter(
+    (m) => m.subscription_status === "trial"
+  );
+
+  const visibleMesses =
+    activeTab === "requests" ? pendingMesses : approvedMesses;
+
+    const callAdminApi = async (url, body) => {
+  const token = localStorage.getItem("token");
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(body),
+  });
+
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || "Action failed");
+};
+
+const approveMess = async (id) => {
+  if (!confirm("Approve this mess?")) return;
+  await callAdminApi("/api/messes/actions/approve", { messId: id });
+  fetchMesses();
+};
+
+const rejectMess = async (id) => {
+  if (!confirm("Reject this mess?")) return;
+  await callAdminApi("/api/messes/actions/reject", { messId: id });
+  fetchMesses();
+};
+
   return (
     <Layout>
       <div className={styles.container}>
         <main className={styles.main}>
-          <h1>All Messes</h1>
+          <h1>Mess Management</h1>
+
+          {/* Tabs */}
+          <div className={styles.tabs}>
+            <button
+              className={`${styles.tab} ${
+                activeTab === "requests" ? styles.activeTab : ""
+              }`}
+              onClick={() => setActiveTab("requests")}
+            >
+              Mess Requests ({pendingMesses.length})
+            </button>
+
+            <button
+              className={`${styles.tab} ${
+                activeTab === "approved" ? styles.activeTab : ""
+              }`}
+              onClick={() => setActiveTab("approved")}
+            >
+              Approved Messes ({approvedMesses.length})
+            </button>
+          </div>
+
           {error && <p style={{ color: "red" }}>{error}</p>}
 
-          {messes.length === 0 ? (
+          {visibleMesses.length === 0 ? (
             <p>No messes found.</p>
           ) : (
             <div className={styles.tableWrapper}>
@@ -56,37 +117,56 @@ export default function MessPage() {
                   <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Prefix</th>
                     <th>Email</th>
-                    <th>Contact Info</th>
                     <th>Location</th>
                     <th>Per Day Rate</th>
                     <th>Active Members</th>
                     <th>Rating</th>
-                    <th>Total Reviews</th>
-                    <th>Open Time</th>
                     <th>Allowed Leave Days</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  {messes.map((m) => (
+                  {visibleMesses.map((m) => (
                     <tr key={m.id}>
                       <td>{m.id}</td>
                       <td>{m.name}</td>
-                      <td>{m.prefix}</td>
                       <td>{m.email || "-"}</td>
-                      <td>
-                        {m.contact_info
-                          ? JSON.stringify(m.contact_info)
-                          : "-"}
-                      </td>
                       <td>{m.location || "-"}</td>
                       <td>₹{Number(m.per_day_rate || 0).toFixed(2)}</td>
                       <td>{m.active_members || 0}</td>
                       <td>{m.rating || 0}</td>
-                      <td>{m.total_reviews || 0}</td>
-                      <td>{m.open_time || "-"}</td>
                       <td>{m.allowed_leave_days || 0}</td>
+
+                      <td>
+  {activeTab === "requests" ? (
+    <div className={styles.actionGroup}>
+      <button
+        className={styles.approveBtn}
+        onClick={() => approveMess(m.id)}
+      >
+        Approve
+      </button>
+
+      <button
+        className={styles.rejectBtn}
+        onClick={() => rejectMess(m.id)}
+      >
+        Reject
+      </button>
+    </div>
+
+  ) : (
+    <button
+      className={styles.editBtn}
+      onClick={() => router.push(`/messes/edit/${m.id}`)}
+    >
+      Edit
+    </button>
+  )}
+</td>
+
                     </tr>
                   ))}
                 </tbody>

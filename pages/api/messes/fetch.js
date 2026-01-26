@@ -24,25 +24,27 @@ export default async function handler(req, res) {
     // Query brief mess info
     const query = `
       SELECT
-        id,
-        name,
-        per_day_rate,
-        email,
-        contact_info,
-        prefix,
-        description,
-        location,
-        rating,
-        total_reviews,
-        open_time,
-        active_members,
-        specialties,
-        monthly_price,
-        features,
-        allowed_leave_days,
-        updated_at
-      FROM messes
-      ORDER BY id DESC
+  id,
+  name,
+  per_day_rate,
+  email,
+  contact_info,
+  prefix,
+  description,
+  location,
+  rating,
+  total_reviews,
+  open_time,
+  active_members,
+  specialties,
+  monthly_price,
+  features,
+  allowed_leave_days,
+  subscription_status,
+  updated_at
+FROM messes
+ORDER BY id DESC
+
     `;
     
     const { rows } = await pgPool.query(query);

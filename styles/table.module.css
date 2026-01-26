@@ -201,3 +201,89 @@
   height: 36px;
   cursor: pointer;
 }
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tab {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.activeTab {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.primaryBtn {
+  padding: 6px 12px;
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.secondaryBtn {
+  padding: 6px 12px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.actionGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.approveBtn {
+  background: #16a34a;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+}
+
+.rejectBtn {
+  background: #dc2626;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+}
+
+.rotateBtn {
+  background: #2563eb;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+}
+
+.approveBtn:hover,
+.rejectBtn:hover,
+.rotateBtn:hover {
+  opacity: 0.9;
+}
+
+
+.editBtn {
+  background: #0f172a;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.editBtn:hover {
+  opacity: 0.9;
+}

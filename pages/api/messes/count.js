@@ -22,7 +22,12 @@ export default async function handler(req, res) {
     }
 
     // Query total mess count
-    const query = `SELECT COUNT(*) AS total FROM messes`;
+    const query = `SELECT
+  COUNT(*) FILTER (WHERE subscription_status = 'pending_approval') AS pending,
+  COUNT(*) FILTER (WHERE subscription_status = 'trial') AS approved,
+  COUNT(*) AS total
+FROM messes;
+`;
     const { rows } = await pgPool.query(query);
 
     res.status(200).json({ total: parseInt(rows[0].total, 10) });

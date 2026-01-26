@@ -37,9 +37,30 @@ export default async function handler(req, res) {
 
     const query = `
       INSERT INTO messes
-      (name, per_day_rate, email, contact_info, prefix, description, location, rating, total_reviews, open_time, active_members, specialties, monthly_price, features, allowed_leave_days)
-      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15)
-      RETURNING id, name
+(
+  name,
+  per_day_rate,
+  email,
+  contact_info,
+  prefix,
+  description,
+  location,
+  rating,
+  total_reviews,
+  open_time,
+  active_members,
+  specialties,
+  monthly_price,
+  features,
+  allowed_leave_days,
+  subscription_status
+)
+VALUES
+(
+  $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,'pending_approval'
+)
+RETURNING id, name, subscription_status
+
     `;
 
     const values = [

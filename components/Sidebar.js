@@ -15,7 +15,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import styles from "../styles/Sidebar.module.css";
-import HardwareScanner from "./HardwareScanner";
 
 export default function Sidebar({ collapsed, setCollapsed }) {
   const [scannerConnected, setScannerConnected] = useState(false);
@@ -100,9 +99,9 @@ export default function Sidebar({ collapsed, setCollapsed }) {
           <CreditCard size={20} /> <span>Register Mess</span>
         </a>
 
-        {/* <a href="/cash-payments">
-          <Wallet size={20} /> <span>Cash Payments</span>
-        </a> */}
+        <a href="/subscription-management">
+          <Wallet size={20} /> <span>Subscription Management</span>
+        </a>
 
         {/* <a href="/notifications">
           <Bell size={20} /> <span>Notifications</span>
