@@ -33,7 +33,7 @@ export default function Navbar() {
     localStorage.removeItem("user");
     setIsLoggedIn(false);
     alert("Logged out successfully ✅");
-    router.push("/login");
+    router.push("/index");
   };
 
   // 🔄 Refresh the page
