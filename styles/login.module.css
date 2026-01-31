@@ -36,27 +36,29 @@
   gap: 1.2rem;
 }
 
-.formGroup {
+.form {
   display: flex;
   flex-direction: column;
   text-align: left;
+  /* padding-top: 100px !important; */
+
 }
 
-.formGroup label {
+.form label {
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
   font-weight: 500;
   color: #374151;
 }
 
-.formGroup input {
+.form input {
   padding: 0.6rem 0.8rem;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 1rem;
 }
 
-.formGroup input:focus {
+.form input:focus {
   outline: none;
   border-color: #16a34a;
   box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
@@ -86,8 +88,8 @@
 }
 
 .logo {
-  width: 90px;
-  margin: 0 auto 1rem;
+  /* width: 90px; */
+  /* margin: 0 auto 1rem; */
   display: block;
 }
 

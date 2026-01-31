@@ -40,7 +40,7 @@ export default function LoginPage() {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <h1 className={styles.logo}>SuperAdmin Login</h1>
+        <h1 className={styles.logo}>Super Admin Login</h1>
         <div className={styles.form}>
           <input
             placeholder="Username"
