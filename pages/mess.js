@@ -130,7 +130,7 @@ const rejectMess = async (id) => {
                 <tbody>
                   {visibleMesses.map((m) => (
                     <tr key={m.id}>
-                      <td>{m.id}</td>
+                      {/* <td>{m.id}</td> */}
                       <td>{m.name}</td>
                       <td>{m.email || "-"}</td>
                       <td>{m.location || "-"}</td>

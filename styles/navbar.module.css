@@ -11,7 +11,7 @@
   justify-content: space-between;
   padding: 0 2rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-  z-index: 1000;
+  z-index: 1100;
 }
 
 .logo {
@@ -136,4 +136,21 @@
 .iconBtn:hover {
   color: #2563eb; 
   transform: scale(1.1);
+}
+
+.menuBtn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 769px) {
+  .menuBtn {
+    display: none;
+  }
 }

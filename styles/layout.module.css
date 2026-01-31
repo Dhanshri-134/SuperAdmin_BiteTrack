@@ -5,10 +5,11 @@
 }
 
 .body {
-  display: flex;
+  /* display: flex; */
   flex: 1;
   margin-top: 60px; /* account for fixed navbar */
   min-width: 0;
+    position: relative;
 }
 
 .main {
@@ -47,5 +48,24 @@
 @media (min-width: 769px) {
   .overlay {
     display: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .main,
+  .mainCollapsed {
+    margin-left: 0 !important;   /* 🔥 THIS STOPS CONTENT MOVING */
+    width: 100%;
+  }
+
+  .body {
+    display: block;              /* 🔥 disable flex reflow */
+  }
+}
+
+@media (max-width: 768px) {
+  body.sidebar-open {
+    overflow: hidden; /* lock scroll when sidebar open */
   }
 }

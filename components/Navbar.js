@@ -2,10 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import { ArrowLeft } from "lucide-react";
 import { Bell, Settings } from "lucide-react";
+import { Menu } from "lucide-react";
+
 import Link from "next/link";
 import styles from "../styles/navbar.module.css";
 
-export default function Navbar() {
+export default function Navbar({ onToggleSidebar }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const dropdownRef = useRef(null);
@@ -58,6 +60,13 @@ export default function Navbar() {
           <ArrowLeft size={18} />
           <span>Back</span>
         </button> */}
+        <button
+  className={styles.menuBtn}
+  onClick={onToggleSidebar}
+  aria-label="Toggle sidebar"
+>
+  <Menu size={22} />
+</button>
 
         {/* Logo */}
         <div className={styles.logo}>
