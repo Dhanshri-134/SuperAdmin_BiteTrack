@@ -54,18 +54,21 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.leftSection}>
         {/* Back Button */}
-        <button className={styles.backBtn} onClick={handleBack} title="Go Back">
+        {/* <button className={styles.backBtn} onClick={handleBack} title="Go Back">
           <ArrowLeft size={18} />
           <span>Back</span>
-        </button>
+        </button> */}
 
         {/* Logo */}
         <div className={styles.logo}>
-          BiteTrack <span>- Mess Management System</span>
+          BiteTrack 
+          {/* <span>- Mess Management System</span> */}
         </div>
       </div>
 
-      <div className={styles.title}>Shris Tech Super Admin</div>
+      <div className={styles.title}>Shris Tech 
+        {/* Super Admin */}
+        </div>
 
       <div className={styles.actions}>
         {/* Notifications */}
@@ -79,9 +82,9 @@ export default function Navbar() {
       <Settings size={20} />
     </Link> */}
         {/* Refresh */}
-        <button className={styles.iconBtn} title="Refresh Page" onClick={handleRefresh}>
+        {/* <button className={styles.iconBtn} title="Refresh Page" onClick={handleRefresh}>
           🔄
-        </button>
+        </button> */}
   </div>
 </div>
 
