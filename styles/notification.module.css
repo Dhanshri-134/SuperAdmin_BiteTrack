@@ -135,3 +135,281 @@
   background: #0070f3;
   color: white !important;
 }
+
+/* Page wrapper */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Page title */
+.page h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ===================== */
+/* Create Notification Card */
+/* ===================== */
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Full-width rows */
+.card textarea,
+.card button {
+  grid-column: span 2;
+}
+
+/* Inputs */
+.card input,
+.card textarea,
+.card select {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ede9fe !important;
+  color:#4b5563;
+}
+
+.card textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Focus */
+.card input:focus,
+.card textarea:focus,
+.card select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Button */
+.card button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.card button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* ===================== */
+/* Notifications Table */
+/* ===================== */
+
+.tableWrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow-x: auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.table thead {
+  background: #f9fafb;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem 0.9rem;
+  font-size: 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: top;
+}
+
+.table th {
+  font-weight: 600;
+  color: #374151;
+}
+
+.table td {
+  color: #4b5563;
+}
+
+/* Row hover */
+.table tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* ===================== */
+/* Badges (Type / Priority) */
+/* ===================== */
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* Types */
+.badge.general {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.badge.alert {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.badge.payment {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.badge.system {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+/* Priority */
+.badge.low {
+  background: #ecfeff;
+  color: #155e75;
+}
+
+.badge.normal {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.badge.high {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge.urgent {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ===================== */
+/* Mobile */
+/* ===================== */
+
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .card textarea,
+  .card button {
+    grid-column: span 1;
+  }
+}
+
+
+/* ===== Desktop / Default ===== */
+
+.card input,
+.card textarea,
+.card select {
+  font-size: 0.85rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.card textarea {
+  min-height: 80px;
+}
+
+.card button {
+  font-size: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+}
+@media (max-width: 768px) {
+
+  /* Inputs */
+  .card input,
+  .card textarea,
+  .card select {
+    font-size: 1rem;                 /* 🔥 bigger text */
+    padding: 0.85rem 0.9rem;         /* 🔥 taller fields */
+    border-radius: 12px;             /* 🔥 softer corners */
+  }
+
+  .card textarea {
+    min-height: 120px;
+  }
+
+  /* Button */
+  .card button {
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 14px;
+  }
+
+  /* Improve tap feedback */
+  .card input:focus,
+  .card textarea:focus,
+  .card select:focus {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+  }
+}
+@media (max-width: 768px) {
+  .card select {
+    appearance: none;
+    background-image:
+      linear-gradient(45deg, transparent 50%, #6b7280 50%),
+      linear-gradient(135deg, #6b7280 50%, transparent 50%);
+    background-position:
+      calc(100% - 20px) calc(1em + 6px),
+      calc(100% - 14px) calc(1em + 6px);
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+  }
+}
+
+.editBtn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  margin-right: 0.4rem;
+}
+
+.deleteBtn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}

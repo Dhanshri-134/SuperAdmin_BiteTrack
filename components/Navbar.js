@@ -84,9 +84,10 @@ export default function Navbar({ onToggleSidebar }) {
         <div className={styles.actions}>
   {/* Notifications */}
   <div className={styles.notificationWrapper}>
-    {/* <Link href="/notifications" className={styles.iconBtn} title="Notifications">
+    <Link href="/notifications" className={styles.iconBtn} title="Notifications">
       <Bell size={20} />
     </Link>
+    {/* 
     <Link href="/settings" className={styles.iconBtn} title="Notifications">
       <Settings size={20} />
     </Link> */}

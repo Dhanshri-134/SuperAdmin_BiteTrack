@@ -1,0 +1,118 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Control */
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 38px;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  background: white;
+  font-size: 0.85rem;
+}
+
+/* Placeholder */
+.placeholder {
+  color: #9ca3af;
+}
+
+/* Selected tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.tag {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+}
+
+/* Arrow */
+.arrow {
+  margin-left: 0.5rem;
+  color: #6b7280;
+}
+
+/* Dropdown menu */
+.menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  z-index: 50;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* Option */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #f9fafb;
+}
+
+.option input {
+  accent-color: #2563eb;
+}
+
+/* ===================== */
+/* 📱 Mobile Overrides */
+/* ===================== */
+
+@media (max-width: 768px) {
+  .control {
+    min-height: 48px;
+    padding: 0.85rem 0.9rem;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .option {
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+}
+
+
+/* Search input */
+.search {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.noResults {
+  padding: 0.6rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-align: center;
+}
