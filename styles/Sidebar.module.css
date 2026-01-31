@@ -162,23 +162,22 @@
   display: none;
 }
 
-
-
+/*  
 @media (max-width: 768px) {
   .sidebar {
     width: 260px;
-    transform: translateX(-100%); /* hidden off screen */
+    transform: translateX(-100%);
   }
 
   .sidebar.collapsed {
-    transform: translateX(-100%); /* stay hidden */
-  }
+    transform: translateX(-100%);
+  } 
 
-  .sidebar:not(.collapsed) {
-    transform: translateX(0); /* slide in */
+   .sidebar:not(.collapsed) {
+    transform: translateX(0);
   }
 
   .toggleBtn {
-    right: -44px; /* keep button visible */
+    right: 44px; 
   }
-}
+}  */
