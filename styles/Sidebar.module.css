@@ -161,3 +161,24 @@
 .sidebar.collapsed .scannerSection .scanResult {
   display: none;
 }
+
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 260px;
+    transform: translateX(-100%); /* hidden off screen */
+  }
+
+  .sidebar.collapsed {
+    transform: translateX(-100%); /* stay hidden */
+  }
+
+  .sidebar:not(.collapsed) {
+    transform: translateX(0); /* slide in */
+  }
+
+  .toggleBtn {
+    right: -44px; /* keep button visible */
+  }
+}
