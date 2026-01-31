@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useMemo } from "react";
-import styles from "./MultiSelectDropdown.module.css";
+import styles from "./MultiselectDropdown.module.css";
 
 export default function MultiSelectDropdown({
   options = [],              // [{ label, value }]
